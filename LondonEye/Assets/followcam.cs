@@ -7,7 +7,7 @@ public class followcam : MonoBehaviour
 {
     public Transform Player;
     public float distanceFromObject = 3f;
-    void Update()
+    void FixedUpdate()
     {
         Vector3 lookOnObject = Player.position - transform.position;
         lookOnObject = Player.position - transform.position;
