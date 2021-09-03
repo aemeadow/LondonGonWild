@@ -16,7 +16,7 @@ public class SpeedModifier : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Accelerator")) 
         {
-            rb.velocity = rb.velocity*2;
+            rb.velocity = rb.velocity*1.2f;
             Debug.Log("Touched Speed");
         }
         if (other.gameObject.CompareTag("Decelerator")) 
