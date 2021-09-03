@@ -25,12 +25,14 @@ public class SpeedModifier : MonoBehaviour
             rb.velocity = rb.velocity*1.2f;
             Debug.Log("Touched Speed");
             count = count + 1;
+            Destroy(other.gameObject);
         }
         if (other.gameObject.CompareTag("Decelerator")) 
         {
             rb.velocity = rb.velocity/2;
             Debug.Log("Touched Slow");
             count = count - 1;
+            Destroy(other.gameObject);
         }
     }
 }
