@@ -8,16 +8,13 @@ public class SpeedModifier : MonoBehaviour
 {
     public Rigidbody rb;
     public TextMeshProUGUI Score;
-    public int count = 0;
+    public int count;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        Score = GetComponent<TextMeshProUGUI>();
-    }
-    void Update()
-    {
-        
+        count = 0;
+        Score.text = "Score:" + count.ToString();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -26,7 +23,7 @@ public class SpeedModifier : MonoBehaviour
             rb.velocity = rb.velocity*1.2f;
             Debug.Log("Touched Speed");
             count = count + 1;
-            Score.text = "Score:" + count;
+            Score.text = "Score:" + count.ToString();
             Destroy(other.gameObject);
         }
         if (other.gameObject.CompareTag("Decelerator")) 
@@ -34,7 +31,7 @@ public class SpeedModifier : MonoBehaviour
             rb.velocity = rb.velocity/2;
             Debug.Log("Touched Slow");
             count = count - 1;
-            Score.text = "Score:" + count;
+            Score.text = "Score:" + count.ToString();
             Destroy(other.gameObject);
         }
     }
